@@ -1,5 +1,8 @@
 (function () {
     var video = document.querySelector('.camera__video');
+    var filters = [ 'camera__video__grayscale',
+                    'camera__video__invert',
+                    'camera__video__threshold' ];
 
     var getVideoStream = function (callback) {
         navigator.getUserMedia = navigator.getUserMedia ||
@@ -26,10 +29,16 @@
     };
 
     var applyFilter = function () {
+        var selectedFilter = document.querySelector('.controls__filter').value;
 
+        for (var i = 0; i < filters.length; i++) {
+            video.classList.remove(filters[i]);
+        }
+
+        video.classList.add('camera__video__' + selectedFilter);
     };
 
     getVideoStream(function () {
-
+        setInterval(applyFilter, 16);
     });
 })();
