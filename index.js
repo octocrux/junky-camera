@@ -20,11 +20,11 @@
                     };
                 },
                 function (err) {
-                    console.log("The following error occured: " + err.name);
+                    console.log('The following error occured: ' + err.name);
                 }
             );
         } else {
-            console.log("getUserMedia not supported");
+            console.log('getUserMedia not supported');
         }
     };
 
