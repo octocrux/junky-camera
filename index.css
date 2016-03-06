@@ -30,6 +30,21 @@ body {
     transform: translateY(-50%);
 }
 
+.camera__video__grayscale {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+
+.camera__video__invert {
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
+}
+
+.camera__video__threshold {
+    -webkit-filter: grayscale(100%) contrast(100);
+    filter: grayscale(100%) contrast(100);
+};
+
 .controls {
     position: fixed;
     top: 0;
