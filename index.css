@@ -1,58 +1,36 @@
-html, body, .section, .camera {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
-
 body {
     overflow: hidden;
-}
-
-.section {
-    height: 100%;
-    position: relative;
-}
-
-.camera {
-    overflow: hidden;
-    vertical-align: middle;
+    margin: 0;
 }
 
 .camera__video {
-    /*visibility: hidden;*/
-}
-
-.camera__canvas {
-    width: 100%;
-    position: absolute;
+    position: fixed;
     top: 50%;
-    transform: translateY(-50%);
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    transform: translateX(-50%) translateY(-50%);
 }
 
-.camera__video__grayscale {
+.camera__video_grayscale {
     -webkit-filter: grayscale(100%);
     filter: grayscale(100%);
 }
 
-.camera__video__invert {
+.camera__video_invert {
     -webkit-filter: invert(100%);
     filter: invert(100%);
 }
 
-.camera__video__threshold {
+.camera__video_threshold {
     -webkit-filter: grayscale(100%) contrast(100);
     filter: grayscale(100%) contrast(100);
-};
-
-.controls {
-    position: fixed;
-    top: 0;
-    width: 100%;
 }
 
 .controls__filter {
+    position: absolute;
     margin: 20px;
-    padding: 10px;
-    font-size: 2em;
+    padding: 0 10px 0 0;
+    font-size: 20px;
+    z-index: 10;
 }

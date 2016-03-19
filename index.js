@@ -1,8 +1,8 @@
 (function () {
     var video = document.querySelector('.camera__video');
-    var filters = [ 'camera__video__grayscale',
-                    'camera__video__invert',
-                    'camera__video__threshold' ];
+    var filters = [ 'camera__video_grayscale',
+                    'camera__video_invert',
+                    'camera__video_threshold' ];
 
     var getVideoStream = function (callback) {
         navigator.getUserMedia = navigator.getUserMedia ||
@@ -10,12 +10,11 @@
             navigator.mozGetUserMedia;
 
         if (navigator.getUserMedia) {
-            navigator.getUserMedia({video: true},
+            navigator.getUserMedia({ video: true },
                 function (stream) {
                     video.src = window.URL.createObjectURL(stream);
                     video.onloadedmetadata = function (e) {
                         video.play();
-
                         callback();
                     };
                 },
@@ -35,10 +34,11 @@
             video.classList.remove(filters[i]);
         }
 
-        video.classList.add('camera__video__' + selectedFilter);
+        video.classList.add('camera__video_' + selectedFilter);
     };
 
-    getVideoStream(function () {
-        setInterval(applyFilter, 16);
-    });
+    var filterSelector = document.querySelector('.controls__filter');
+    filterSelector.addEventListener('change', applyFilter);
+
+    getVideoStream(applyFilter);
 })();
